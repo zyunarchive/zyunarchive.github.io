@@ -417,11 +417,14 @@ let monthData={};
 let cumulative=0,prevIncome=null,prevSpent=null;
 let annualAchievedDate=null;
 
+// 修正(2): 新增全局預算分配默認值
+let defaultBudgetRatio=null; // {r1, r2, r3, r4} 首次設定後不變
+
 // 修正(6): Auto-save 機制
 let autoSaveTimer=null;
-const AUTO_SAVE_INTERVAL=5000; // 每 5 秒自動保存
+const AUTO_SAVE_INTERVAL=5000;
 let lastManualSaveTime=Date.now();
-const FORCE_SAVE_INTERVAL=60000; // 強制保存間隔 (60秒)
+const FORCE_SAVE_INTERVAL=60000;
 
 function mk(){return`${currentYear}-${String(currentMonth).padStart(2,'0')}`;}
 function fmt(v){const cur=document.getElementById('currency').value;return(symbols[cur]||cur+' ')+Math.round(Math.abs(v)).toLocaleString('zh-TW');}
@@ -429,7 +432,6 @@ function totalIncome(){return(parseFloat(document.getElementById('deposits').val
 
 
 const goalColors=['#5DCAA5','#7F77DD','#EF9F27'];
-const goalDefaults=[{name:'',target:'',saved:''},{name:'',target:'',saved:''},{name:'',target:'',saved:''}];
 
 function renderGoals(){
   const c=document.getElementById('goals-container');
@@ -445,7 +447,6 @@ function renderGoals(){
 }
 
 function calcAnnualGoal(income,savePct){
-  // 修正 (5): 新目標設定時，原有累計存款納入新目標中
   const goal=parseFloat(document.getElementById('annual-goal').value)||0;
   const fill=document.getElementById('annual-fill');
   const reached=document.getElementById('annual-reached');
@@ -460,7 +461,6 @@ function calcAnnualGoal(income,savePct){
     return;
   }
   
-  // 修正(5): cumulative 是持續累積的總額，新目標直接用 cumulative 比較
   const pct=Math.min(cumulative/goal*100,100);
   fill.style.width=pct.toFixed(1)+'%';
   reached.textContent='已達標：'+fmt(Math.min(Math.max(cumulative,0),goal))+' ('+pct.toFixed(0)+'%)';
@@ -469,7 +469,6 @@ function calcAnnualGoal(income,savePct){
   if(diff<=0){
     remain.textContent='🎉 已達標！';
     remain.className='ok';
-    // 若已達標且未記錄日期，記錄達標日期
     if(!annualAchievedDate){
       const now=new Date();
       const dateStr=`${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')}`;
@@ -513,7 +512,6 @@ function loadGoalData(){
     const gt=document.getElementById('gtarget-'+i);if(gt)gt.value=d['gtarget'+i]??'';
     const gs=document.getElementById('gsaved-'+i);if(gs)gs.value=d['gsaved'+i]??'';
   }
-  // 載入達標日期
   const tg=monthData['__global'];
   if(tg&&tg.annualAchievedDate){
     annualAchievedDate=tg.annualAchievedDate;
@@ -534,7 +532,6 @@ function saveGoalData(){
 
 // ── Persistence ───────────────────────────────────────────────────────────
 
-// 修正(6): Auto-save 機制確保資料完整不遺失
 function autoSave(){
   saveData();
   saveGoalData();
@@ -561,7 +558,6 @@ function persistToStorage(){
     localStorage.setItem('sag_cur',JSON.stringify({y:currentYear,m:currentMonth}));
     localStorage.setItem('sag_meta',JSON.stringify(metadata));
   }catch(e){console.warn('Storage error:',e);}
-  // Sync to Firestore if signed in
   if(typeof window._fbSave==='function'){
     window._fbSave({monthData,currentYear,currentMonth,lastSavedTime:Date.now()});
   }
@@ -624,13 +620,21 @@ function loadMonth(){
   document.getElementById('salary').value=d.salary||'';
   document.getElementById('invest').value=d.invest||'';
   document.getElementById('side').value=d.side||'';
+  
+  // 修正(2): 載入預算比例時，優先載入該月份資料；若無則使用全局默認值
   [1,2,3,4].forEach(i=>{
-    document.getElementById('r'+i).value=d['r'+i]??[30,20,40,10][i-1];
-    document.getElementById('p'+i).textContent=(d['r'+i]??[30,20,40,10][i-1])+'%';
+    let ratio=d['r'+i];
+    if(ratio===undefined || ratio===null){
+      // 若該月無資料，使用全局默認值；若全局無，使用硬編碼默認值
+      ratio=defaultBudgetRatio?defaultBudgetRatio['r'+i]:[30,20,40,10][i-1];
+    }
+    document.getElementById('r'+i).value=ratio;
+    document.getElementById('p'+i).textContent=ratio+'%';
     if(typeof updateSliderTrack==='function')updateSliderTrack(i);
     document.getElementById('sp-'+i).value=d['sp'+i]||'';
     const rn=document.getElementById('rn-'+i);if(rn)rn.value=d['rn'+i]??'';
   });
+  
   document.getElementById('month-label').textContent=`${currentYear}/${String(currentMonth).padStart(2,'0')}`;
   prevIncome=d.prevIncome??null;prevSpent=d.prevSpent??null;cumulative=d.cumulative??0;
   const tg=monthData['__global'];if(tg&&tg.tagline)document.getElementById('tagline').value=tg.tagline;
@@ -655,7 +659,20 @@ function inputChange(){saveAndCalc();}
 function saveTagline(){if(!monthData['__global'])monthData['__global']={};monthData['__global'].tagline=document.getElementById('tagline').value;triggerAutoSave();}
 const sliderColors=['#5DCAA5','#7F77DD','#EF9F27','#D85A30'];
 function updateSliderTrack(n){const el=document.getElementById('r'+n);const v=el.value+'%';const c=sliderColors[n-1];el.style.background='linear-gradient(to right,'+c+' 0%,'+c+' '+v+',#e8e8e8 '+v+',#e8e8e8 100%)';}
-function syncSlider(n){document.getElementById('p'+n).textContent=document.getElementById('r'+n).value+'%';updateSliderTrack(n);saveAndCalc();}
+function syncSlider(n){
+  document.getElementById('p'+n).textContent=document.getElementById('r'+n).value+'%';
+  updateSliderTrack(n);
+  
+  // 修正(2): 首次設定時記錄全局默認值
+  if(!defaultBudgetRatio){
+    defaultBudgetRatio={};
+    [1,2,3,4].forEach(i=>{defaultBudgetRatio['r'+i]=parseInt(document.getElementById('r'+i).value);});
+    if(!monthData['__global'])monthData['__global']={};
+    monthData['__global'].defaultBudgetRatio=defaultBudgetRatio;
+  }
+  
+  saveAndCalc();
+}
 function updateCurrBadges(){const cur=document.getElementById('currency').value;['annual-curr-badge','goals-curr-badge'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=cur;});}
 function saveAndCalc(){saveData();saveGoalData();calc();calcGoals();updateCurrBadges();triggerAutoSave();}
 
@@ -706,7 +723,8 @@ function saveMonth(){
   monthData[nextKey].cumulative=cumulative+balance;
   monthData[nextKey].salary=parseFloat(document.getElementById('salary').value)||0;
   monthData[nextKey].deposits=0;monthData[nextKey].invest=0;monthData[nextKey].side=0;
-  [1,2,3,4].forEach(i=>{monthData[nextKey]['r'+i]=[30,20,40,10][i-1];monthData[nextKey]['sp'+i]='';});
+  [1,2,3,4].forEach(i=>{monthData[nextKey]['sp'+i]='';});
+  // 修正(2): 下月不預先設定預算比例，讓 loadMonth 時自動使用全局默認值
   saveData();
   alert('✅ '+currentYear+'/'+String(currentMonth).padStart(2,'0')+' 已結算！\n本期收支：'+(balance>=0?'+':'-')+fmt(balance)+'\n累計總收支：'+(cumulative+balance>=0?'+':'-')+fmt(cumulative+balance));
   persistToStorage();
@@ -714,14 +732,18 @@ function saveMonth(){
 
 function changeMonth(delta){saveData();currentMonth+=delta;if(currentMonth>12){currentMonth=1;currentYear++;}if(currentMonth<1){currentMonth=12;currentYear--;}loadMonth();}
 
-// 修正(6): 定期強制保存確保資料不遺失
 setInterval(function(){
   if(Date.now()-lastManualSaveTime>FORCE_SAVE_INTERVAL){
     autoSave();
   }
 },FORCE_SAVE_INTERVAL);
 
-loadFromStorage();renderCats();renderReviews();renderGoals();loadMonth();[1,2,3,4].forEach(updateSliderTrack);updateCurrBadges();
+loadFromStorage();
+// 修正(2): 載入時恢復全局默認值
+if(monthData['__global']&&monthData['__global'].defaultBudgetRatio){
+  defaultBudgetRatio=monthData['__global'].defaultBudgetRatio;
+}
+renderCats();renderReviews();renderGoals();loadMonth();[1,2,3,4].forEach(updateSliderTrack);updateCurrBadges();
 </script>
 
 <div class="watermark">Designed by zyun_0</div>
