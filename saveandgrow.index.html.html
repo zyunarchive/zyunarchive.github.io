@@ -37,19 +37,19 @@ body{font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;background:#fdf
 .wrap{max-width:520px;margin:0 auto;padding-bottom:40px;width:100%}
 .hero{text-align:center;margin-bottom:20px;padding:20px 0}
 .hero h1{font-size:26px;font-weight:600;color:#333;letter-spacing:.02em}
-.hero input.tagline{width:100%;border:none;outline:none;background:transparent;text-align:center;font-size:14px;color:#888;margin-top:8px;padding:4px 0;border-bottom:1px solid #eee;font-family:inh[...]
+.hero input.tagline{width:100%;border:none;outline:none;background:transparent;text-align:center;font-size:14px;color:#888;margin-top:8px;padding:4px 0;border-bottom:1px solid #eee;font-family:inherit}
 .hero input.tagline::placeholder{color:#ccc}
 .card{background:#fff;border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .card-title{font-size:12px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;display:flex;align-items:center;gap:6px}
 .month-picker{display:flex;justify-content:center;align-items:center;gap:12px}
-.month-nav button{height:42px;width:42px;border:1.5px solid #eee;border-radius:10px;background:transparent;color:#555;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:[...]
+.month-nav button{height:42px;width:42px;border:1.5px solid #eee;border-radius:10px;background:transparent;color:#555;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
 .month-nav button:hover{background:#f5f5f5}
 .month-label{font-size:17px;font-weight:600;color:#333;min-width:90px;text-align:center}
 .income-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .income-header-label{font-size:12px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.08em}
 .income-row{display:flex;gap:8px;align-items:center;margin-bottom:10px}
 .income-row label{font-size:13px;color:#666;white-space:nowrap;min-width:90px}
-.income-row input,.salary-input{flex:1;height:44px;font-size:16px;border:1.5px solid #eee;border-radius:10px;font-size:14px;background:#fafafa;color:#333;padding:0 12px;outline:none;transition:bor[...]
+.income-row input,.salary-input{flex:1;height:44px;font-size:16px;border:1.5px solid #eee;border-radius:10px;font-size:14px;background:#fafafa;color:#333;padding:0 12px;outline:none;transition:border .2s}
 .income-row input:focus,.salary-input:focus{border-color:#ffb347}
 select{height:44px;font-size:16px;border:1.5px solid #eee;border-radius:10px;font-size:14px;background:#fafafa;color:#333;padding:0 10px;outline:none;cursor:pointer}
 select:focus{border-color:#ffb347}
@@ -60,8 +60,9 @@ select:focus{border-color:#ffb347}
 .slider-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .slider-label{font-size:14px;color:#555}
 .slider-pct{font-size:14px;font-weight:600;color:#333;min-width:40px;text-align:right}
-input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:9px;outline:none;cursor:pointer;background:linear-gradient(to right,#5DCAA5 0%,#5DCAA5 var(--v,50%),#e[...]
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:2.5px solid #aaa;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.18)[...]
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:9px;outline:none;cursor:pointer;background:linear-gradient(to right,#5DCAA5 0%,#5DCAA5 var(--v,50%),#e8e8e8 var(--v,50%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:2.5px solid #aaa;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.18);touch-action:none}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:2.5px solid #aaa;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.18)}
 #r1{--color:#5DCAA5}#r2{--color:#7F77DD}#r3{--color:#EF9F27}#r4{--color:#D85A30}
 .warn-box{font-size:12px;padding:8px 12px;border-radius:8px;margin-top:8px;display:none}
 .bar-bg{height:10px;background:#f0f0f0;border-radius:9px;overflow:hidden;display:flex;gap:2px;margin-top:14px}
@@ -105,7 +106,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .cumulative-val{font-size:18px;font-weight:600}
 .cumulative-val.pos{color:#27ae60}
 .cumulative-val.neg{color:#e74c3c}
-.save-btn{width:100%;height:48px;font-size:15px;border:1.5px solid #eee;border-radius:12px;background:transparent;font-size:14px;font-weight:600;color:#555;cursor:pointer;margin-top:12px;transiti[...]
+.save-btn{width:100%;height:48px;font-size:15px;border:1.5px solid #eee;border-radius:12px;background:transparent;font-size:14px;font-weight:600;color:#555;cursor:pointer;margin-top:12px;transition:background .2s}
 .save-btn:hover{background:#f5f5f5}
 .review-row{padding:11px 0;border-bottom:1px solid #f5f5f5}
 .review-row:last-child{border-bottom:none}
@@ -115,7 +116,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .badge-ok{background:#eafaf1;color:#27ae60}
 .badge-caution{background:#fef9e7;color:#e67e22}
 .badge-over{background:#fdf2f2;color:#e74c3c}
-textarea.review-note{width:100%;height:54px;resize:none;border:1.5px solid #eee;border-radius:10px;font-size:16px;background:#fafafa;color:#333;padding:8px 12px;outline:none;font-family:inherit;l[...]
+textarea.review-note{width:100%;height:54px;resize:none;border:1.5px solid #eee;border-radius:10px;font-size:16px;background:#fafafa;color:#333;padding:8px 12px;outline:none;font-family:inherit;line-height:1.4}
 textarea.review-note:focus{border-color:#ffb347}
 textarea.review-note::placeholder{color:#ccc}
 
@@ -130,13 +131,13 @@ textarea.review-note::placeholder{color:#ccc}
 .goal-item{padding:12px 0;border-bottom:1px solid #f5f5f5}
 .goal-item:last-child{border-bottom:none}
 .goal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.goal-name-input{flex:1;height:42px;border:1.5px solid #eee;border-radius:10px;font-size:16px;font-weight:500;background:#fafafa;color:#333;padding:0 10px;outline:none;font-family:inherit;margin-[...]
+.goal-name-input{flex:1;height:42px;border:1.5px solid #eee;border-radius:10px;font-size:16px;font-weight:500;background:#fafafa;color:#333;padding:0 10px;outline:none;font-family:inherit;margin-right:8px}
 .goal-name-input:focus{border-color:#ffb347}
 .goal-name-input::placeholder{color:#ccc}
 .goal-inputs{display:flex;flex-direction:row;gap:6px;margin-bottom:8px;width:100%;box-sizing:border-box}
 .goal-input-pair{display:flex;align-items:center;gap:4px;flex:1;min-width:0}
 .goal-inputs label{font-size:11px;color:#888;white-space:nowrap;flex-shrink:0}
-.goal-inputs input{flex:1;min-width:0;width:100%;height:38px;border:1.5px solid #eee;border-radius:10px;font-size:15px;background:#fafafa;color:#333;padding:0 6px;outline:none;font-family:inherit[...]
+.goal-inputs input{flex:1;min-width:0;width:100%;height:38px;border:1.5px solid #eee;border-radius:10px;font-size:15px;background:#fafafa;color:#333;padding:0 6px;outline:none;font-family:inherit;box-sizing:border-box}
 .goal-inputs input:focus{border-color:#ffb347}
 .goal-prog-bar{height:6px;background:#f0f0f0;border-radius:9px;overflow:hidden;margin-bottom:5px}
 .goal-prog-fill{height:100%;border-radius:9px;background:#5DCAA5;transition:width .3s}
@@ -150,12 +151,13 @@ textarea.review-note::placeholder{color:#ccc}
 .annual-prog-bar{height:6px;background:#f0f0f0;border-radius:9px;overflow:hidden;margin-bottom:5px}
 .annual-prog-fill{height:100%;border-radius:9px;background:#5DCAA5;transition:width .3s}
 .annual-stats{display:flex;justify-content:space-between;font-size:12px}
+.annual-achieved{font-size:12px;color:#27ae60;font-weight:600;margin-top:6px}
 
 .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .section-title{font-size:13px;font-weight:600;color:#555}
 .curr-badge{font-size:11px;font-weight:600;padding:3px 10px;border:1.5px solid #eee;border-radius:20px;color:#888;background:#fafafa;cursor:default;letter-spacing:.03em}
 
-.watermark{text-align:center;font-size:11px;color:rgba(60,60,60,0.35);font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;letter-spacing:.12em;padding:30px 0 40px;user-select:none;-webkit[...]
+.watermark{text-align:center;font-size:11px;color:rgba(60,60,60,0.35);font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;letter-spacing:.12em;padding:30px 0 40px;user-select:none;-webkit-user-select:none}
 </style>
 
 
@@ -191,7 +193,7 @@ textarea.review-note::placeholder{color:#ccc}
   }
 
   function _buildSignInBtn(){
-    return '<button onclick="_fbSignIn()" style="height:40px;padding:0 20px;border:1.5px solid #ddd;border-radius:10px;background:#fff;font-size:14px;font-weight:600;color:#444;cursor:pointer;dis[...]
+    return '<button onclick="_fbSignIn()" style="height:40px;padding:0 20px;border:1.5px solid #ddd;border-radius:10px;background:#fff;font-size:14px;font-weight:600;color:#444;cursor:pointer;display:flex;align-items:center;gap:8px">'
       +'<svg width="18" height="18" viewBox="0 0 48 48">'
       +'<path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>'
       +'<path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>'
@@ -258,7 +260,7 @@ textarea.review-note::placeholder{color:#ccc}
           b.innerHTML='<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">'
             +'<img src="'+(user.photoURL||'')+'" style="width:28px;height:28px;border-radius:50%;object-fit:cover">'
             +'<span style="font-size:13px;color:#555">'+(user.displayName||user.email)+'</span>'
-            +'<button onclick="_fbSignOut()" style="height:30px;padding:0 12px;border:1.5px solid #eee;border-radius:8px;background:transparent;font-size:12px;color:#aaa;cursor:pointer;font-famil[...]
+            +'<button onclick="_fbSignOut()" style="height:30px;padding:0 12px;border:1.5px solid #eee;border-radius:8px;background:transparent;font-size:12px;color:#aaa;cursor:pointer;font-family:inherit">登出</button>'
             +'</div>';
           var cloud=await window._fbLoad();
           if(cloud&&cloud.monthData){
@@ -313,6 +315,10 @@ textarea.review-note::placeholder{color:#ccc}
       </select>
     </div>
     <div class="income-row">
+      <label>💳 先有存款</label>
+      <input type="number" id="deposits" value="" min="0" placeholder="輸入金額" oninput="saveAndCalc()">
+    </div>
+    <div class="income-row">
       <label>🏦 月薪</label>
       <input type="number" id="salary" value="" min="0" placeholder="輸入金額" oninput="saveAndCalc()">
     </div>
@@ -332,13 +338,13 @@ textarea.review-note::placeholder{color:#ccc}
 
   <div class="card">
     <div class="card-title">🎚️ 預算比例分配</div>
-    <div class="slider-row"><div class="slider-top"><span class="slider-label">💰 存款 / 投資</span><span class="slider-pct" id="p1">30%</span></div><input type="range" id="r1" min="0" max=[...]
-    <div class="slider-row"><div class="slider-top"><span class="slider-label">🎉 娛樂 / 自我提升</span><span class="slider-pct" id="p2">20%</span></div><input type="range" id="r2" min="0[...]
-    <div class="slider-row"><div class="slider-top"><span class="slider-label">🛒 一般花費</span><span class="slider-pct" id="p3">40%</span></div><input type="range" id="r3" min="0" max="10[...]
-    <div class="slider-row"><div class="slider-top"><span class="slider-label">🏠 其他 / 備用</span><span class="slider-pct" id="p4">10%</span></div><input type="range" id="r4" min="0" max=[...]
+    <div class="slider-row"><div class="slider-top"><span class="slider-label">💰 存款 / 投資</span><span class="slider-pct" id="p1">30%</span></div><input type="range" id="r1" min="0" max="100" value="30" oninput="syncSlider(1)"></div>
+    <div class="slider-row"><div class="slider-top"><span class="slider-label">🎉 娛樂 / 自我提升</span><span class="slider-pct" id="p2">20%</span></div><input type="range" id="r2" min="0" max="100" value="20" oninput="syncSlider(2)"></div>
+    <div class="slider-row"><div class="slider-top"><span class="slider-label">🛒 一般花費</span><span class="slider-pct" id="p3">40%</span></div><input type="range" id="r3" min="0" max="100" value="40" oninput="syncSlider(3)"></div>
+    <div class="slider-row"><div class="slider-top"><span class="slider-label">🏠 其他 / 備用</span><span class="slider-pct" id="p4">10%</span></div><input type="range" id="r4" min="0" max="100" value="10" oninput="syncSlider(4)"></div>
     <div id="totalWarn" class="warn-box"></div>
-    <div class="bar-bg"><div class="seg" id="b1" style="background:#5DCAA5;width:30%"></div><div class="seg" id="b2" style="background:#7F77DD;width:20%"></div><div class="seg" id="b3" style="bac[...]
-    <div class="legend"><div class="leg"><div class="dot" style="background:#5DCAA5"></div>存款/投資</div><div class="leg"><div class="dot" style="background:#7F77DD"></div>娛樂/提升</div[...]
+    <div class="bar-bg"><div class="seg" id="b1" style="background:#5DCAA5;width:30%"></div><div class="seg" id="b2" style="background:#7F77DD;width:20%"></div><div class="seg" id="b3" style="background:#EF9F27;width:40%"></div><div class="seg" id="b4" style="background:#D85A30;width:10%"></div></div>
+    <div class="legend"><div class="leg"><div class="dot" style="background:#5DCAA5"></div>存款/投資</div><div class="leg"><div class="dot" style="background:#7F77DD"></div>娛樂/提升</div><div class="leg"><div class="dot" style="background:#EF9F27"></div>一般花費</div><div class="leg"><div class="dot" style="background:#D85A30"></div>其他/備用</div></div>
   </div>
 
   <div class="card">
@@ -364,6 +370,7 @@ textarea.review-note::placeholder{color:#ccc}
         <span id="annual-reached" style="color:#aaa;font-size:12px">已達標：—</span>
         <span id="annual-remain" class="ok" style="font-size:12px">還差：—</span>
       </div>
+      <div class="annual-achieved" id="annual-achieved-date"></div>
     </div>
     <div class="goal-section" id="goals-container"></div>
   </div>
@@ -378,7 +385,7 @@ textarea.review-note::placeholder{color:#ccc}
     <div class="settle-grid">
       <div class="settle-card"><div class="settle-label">本月總收入</div><div class="settle-val" id="s-income">—</div><div class="delta" id="d-income">—</div></div>
       <div class="settle-card"><div class="settle-label">本月總支出</div><div class="settle-val" id="s-spent">—</div><div class="delta" id="d-spent">—</div></div>
-      <div class="settle-card"><div class="settle-label">本期收支</div><div class="settle-val" id="s-balance">—</div><div class="delta" id="d-balance" style="color:#aaa;font-size:11px;margi[...]
+      <div class="settle-card"><div class="settle-label">本期收支</div><div class="settle-val" id="s-balance">—</div><div class="delta" id="d-balance" style="color:#aaa;font-size:11px;margin-top:3px">—</div></div>
     </div>
     <div class="cumulative-bar">
       <span class="cumulative-label">🗂️ 累計總收支</span>
@@ -400,16 +407,17 @@ const catDefs=[
   {id:3,emoji:'🛒',name:'一般花費',color:'#EF9F27'},
   {id:4,emoji:'🏠',name:'其他 / 備用',color:'#D85A30'},
 ];
-const reviewHints=['這個月有確實存到錢嗎？下個月想調整什麼？','娛樂花費值得嗎？有沒有衝動消費？','有哪些支出可以再省？','備用金有動用嗎？原因是[...]
+const reviewHints=['這個月有確實存到錢嗎？下個月想調整什麼？','娛樂花費值得嗎？有沒有衝動消費？','有哪些支出可以再省？','備用金有動用嗎？原因是什麼？'];
 const symbols={TWD:'NT$',USD:'$',JPY:'¥',EUR:'€',HKD:'HK$',CNY:'¥',KRW:'₩',SGD:'S$'};
 
 let currentYear=2026,currentMonth=5;
 let monthData={};
 let cumulative=0,prevIncome=null,prevSpent=null;
+let annualAchievedDate=null; // 修正(4): 紀錄達標日期
 
 function mk(){return`${currentYear}-${String(currentMonth).padStart(2,'0')}`;}
 function fmt(v){const cur=document.getElementById('currency').value;return(symbols[cur]||cur+' ')+Math.round(Math.abs(v)).toLocaleString('zh-TW');}
-function totalIncome(){return(parseFloat(document.getElementById('salary').value)||0)+(parseFloat(document.getElementById('invest').value)||0)+(parseFloat(document.getElementById('side').value)||[...]
+function totalIncome(){return(parseFloat(document.getElementById('deposits').value)||0)+(parseFloat(document.getElementById('salary').value)||0)+(parseFloat(document.getElementById('invest').value)||0)+(parseFloat(document.getElementById('side').value)||0);}
 
 
 const goalColors=['#5DCAA5','#7F77DD','#EF9F27'];
@@ -417,11 +425,11 @@ const goalDefaults=[{name:'',target:'',saved:''},{name:'',target:'',saved:''},{n
 
 function renderGoals(){
   const c=document.getElementById('goals-container');
-  c.innerHTML='<div class="section-header" style="margin-top:12px;padding-top:12px;border-top:1px solid #f5f5f5"><span class="section-title">🎁 Savings Goals</span><span class="curr-badge" id="[...]
+  c.innerHTML='<div class="section-header" style="margin-top:12px;padding-top:12px;border-top:1px solid #f5f5f5"><span class="section-title">🎁 Savings Goals</span><span class="curr-badge" id="goals-curr-badge">TWD</span></div>';
   for(let i=0;i<3;i++){
     const d=document.createElement('div');d.className='goal-item';
-    d.innerHTML=`<div class="goal-top"><input class="goal-name-input" id="gname-${i}" type="text" placeholder="存錢目標名稱（如：換手機）" maxlength="20" oninput="saveAndCalc()"></di[...]
-    <div class="goal-inputs"><label>目標</label><input type="number" id="gtarget-${i}" min="0" placeholder="輸入金額" oninput="saveAndCalc()"><label>已存</label><input type="number" id="g[...]
+    d.innerHTML=`<div class="goal-top"><input class="goal-name-input" id="gname-${i}" type="text" placeholder="存錢目標名稱（如：換手機）" maxlength="20" oninput="saveAndCalc()"></div>
+    <div class="goal-inputs"><label>目標</label><input type="number" id="gtarget-${i}" min="0" placeholder="輸入金額" oninput="saveAndCalc()"><label>已存</label><input type="number" id="gsaved-${i}" min="0" placeholder="輸入金額" oninput="saveAndCalc()"></div>
     <div class="goal-prog-bar"><div class="goal-prog-fill" id="gpf-${i}" style="background:${goalColors[i]};width:0%"></div></div>
     <div class="goal-stats"><span style="color:#aaa;font-size:12px" id="greached-${i}">已達標：—</span><span id="gremain-${i}" class="ok" style="font-size:12px">還差：—</span></div>`;
     c.appendChild(d);
@@ -429,18 +437,47 @@ function renderGoals(){
 }
 
 function calcAnnualGoal(income,savePct){
-  // 修正 (1): 年度存款目標現在基於累計總收支，而不是當月收入
+  // 修正 (4): 年度存款持續累積，達標後顯示達標日期，並延續紀錄
   const goal=parseFloat(document.getElementById('annual-goal').value)||0;
   const fill=document.getElementById('annual-fill');
   const reached=document.getElementById('annual-reached');
   const remain=document.getElementById('annual-remain');
-  if(!goal){fill.style.width='0%';reached.textContent='已達標：—';remain.textContent='還差：—';return;}
+  const achievedEl=document.getElementById('annual-achieved-date');
+  
+  if(!goal){
+    fill.style.width='0%';
+    reached.textContent='已達標：—';
+    remain.textContent='還差：—';
+    achievedEl.textContent='';
+    return;
+  }
+  
   const pct=Math.min(cumulative/goal*100,100);
   fill.style.width=pct.toFixed(1)+'%';
   reached.textContent='已達標：'+fmt(Math.min(Math.max(cumulative,0),goal))+' ('+pct.toFixed(0)+'%)';
+  
   const diff=goal-cumulative;
-  if(diff<=0){remain.textContent='🎉 已達標！';remain.className='ok';}
-  else{remain.textContent='還差：'+fmt(diff);remain.className='caution';}
+  if(diff<=0){
+    remain.textContent='🎉 已達標！';
+    remain.className='ok';
+    // 修正(4): 若已達標且未記錄日期，記錄達標日期
+    if(!annualAchievedDate){
+      const now=new Date();
+      const dateStr=`${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')}`;
+      annualAchievedDate=dateStr;
+      monthData['__global']=monthData['__global']||{};
+      monthData['__global'].annualAchievedDate=annualAchievedDate;
+      persistToStorage();
+    }
+    if(annualAchievedDate){
+      achievedEl.textContent=annualAchievedDate+' '+fmt(cumulative)+' ✅';
+    }
+  }
+  else{
+    remain.textContent='還差：'+fmt(diff);
+    remain.className='caution';
+    achievedEl.textContent='';
+  }
 }
 
 function calcGoals(){
@@ -466,6 +503,11 @@ function loadGoalData(){
     const gn=document.getElementById('gname-'+i);if(gn)gn.value=d['gname'+i]??'';
     const gt=document.getElementById('gtarget-'+i);if(gt)gt.value=d['gtarget'+i]??'';
     const gs=document.getElementById('gsaved-'+i);if(gs)gs.value=d['gsaved'+i]??'';
+  }
+  // 修正(4): 載入達標日期
+  const tg=monthData['__global'];
+  if(tg&&tg.annualAchievedDate){
+    annualAchievedDate=tg.annualAchievedDate;
   }
   calcGoals();
 }
@@ -519,22 +561,6 @@ function importData(e){
   reader.readAsText(file);
 }
 
-
-function persistToStorage(){
-  try{localStorage.setItem('sag_data',JSON.stringify(monthData));
-      localStorage.setItem('sag_cur',JSON.stringify({y:currentYear,m:currentMonth}));}
-  catch(e){}
-  if(typeof window._fbSave==='function') window._fbSave({monthData,currentYear,currentMonth});
-}
-function loadFromStorage(){
-  try{
-    var d=localStorage.getItem('sag_data');
-    if(d) monthData=JSON.parse(d);
-    var c=localStorage.getItem('sag_cur');
-    if(c){var o=JSON.parse(c);currentYear=o.y;currentMonth=o.m;}
-  }catch(e){}
-}
-
 function renderCats(){
   const c=document.getElementById('cats');c.innerHTML='';
   catDefs.forEach(cat=>{
@@ -558,8 +584,8 @@ function renderReviews(){
 
 function loadMonth(){
   const key=mk();const d=monthData[key]||{};
+  document.getElementById('deposits').value=d.deposits||'';
   document.getElementById('salary').value=d.salary||'';
-
   document.getElementById('invest').value=d.invest||'';
   document.getElementById('side').value=d.side||'';
   [1,2,3,4].forEach(i=>{
@@ -578,18 +604,19 @@ function loadMonth(){
 }
 function saveData(){
   const key=mk();if(!monthData[key])monthData[key]={};const d=monthData[key];
+  d.deposits=parseFloat(document.getElementById('deposits').value)||0;
   d.salary=parseFloat(document.getElementById('salary').value)||0;
   d.invest=parseFloat(document.getElementById('invest').value)||0;
   d.side=parseFloat(document.getElementById('side').value)||0;
-  [1,2,3,4].forEach(i=>{d['r'+i]=parseInt(document.getElementById('r'+i).value);d['sp'+i]=parseFloat(document.getElementById('sp-'+i).value)||0;const rn=document.getElementById('rn-'+i);if(rn)d['[...]
+  [1,2,3,4].forEach(i=>{d['r'+i]=parseInt(document.getElementById('r'+i).value);d['sp'+i]=parseFloat(document.getElementById('sp-'+i).value)||0;const rn=document.getElementById('rn-'+i);if(rn)d['rn'+i]=rn.value;});
   d.cumulative=cumulative;d.prevIncome=prevIncome;d.prevSpent=prevSpent;
 }
 function saveReview(id){const rn=document.getElementById('rn-'+id);if(!monthData[mk()])monthData[mk()]={};monthData[mk()]['rn'+id]=rn.value;}
 function saveTagline(){if(!monthData['__global'])monthData['__global']={};monthData['__global'].tagline=document.getElementById('tagline').value;persistToStorage();}
 const sliderColors=['#5DCAA5','#7F77DD','#EF9F27','#D85A30'];
-function updateSliderTrack(n){const el=document.getElementById('r'+n);const v=el.value+'%';const c=sliderColors[n-1];el.style.background='linear-gradient(to right,'+c+' 0%,'+c+' '+v+',#e8e8e8 '+v[...]
+function updateSliderTrack(n){const el=document.getElementById('r'+n);const v=el.value+'%';const c=sliderColors[n-1];el.style.background='linear-gradient(to right,'+c+' 0%,'+c+' '+v+',#e8e8e8 '+v+',#e8e8e8 100%)';}
 function syncSlider(n){document.getElementById('p'+n).textContent=document.getElementById('r'+n).value+'%';updateSliderTrack(n);saveAndCalc();}
-function updateCurrBadges(){const cur=document.getElementById('currency').value;['annual-curr-badge','goals-curr-badge'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=cur[...]
+function updateCurrBadges(){const cur=document.getElementById('currency').value;['annual-curr-badge','goals-curr-badge'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=cur;});}
 function saveAndCalc(){saveData();saveGoalData();calc();calcGoals();updateCurrBadges();}
 
 function calc(){
@@ -621,7 +648,7 @@ function calc(){
   document.getElementById('s-spent').textContent=income>0?fmt(totalSpent):'—';
   const balance=income-totalSpent;
   const bEl=document.getElementById('s-balance');bEl.textContent=income>0?fmt(balance):'—';bEl.className='settle-val'+(balance>=0?' pos':' neg');
-  function deltaEl(elId,curr,prev){const el=document.getElementById(elId);if(prev===null||curr===0){el.textContent='vs 上月：—';el.className='delta';return;}const diff=curr-prev;const pct=pr[...]
+  function deltaEl(elId,curr,prev){const el=document.getElementById(elId);if(prev===null||curr===0){el.textContent='vs 上月：—';el.className='delta';return;}const diff=curr-prev;const pct=prev!==0?Math.round(diff/prev*100):0;el.textContent='vs 上月：'+(diff>=0?'+':'')+fmt(diff)+' ('+(pct>=0?'+':'')+pct+'%)';el.className='delta'+(diff>0?' up':diff<0?' down':'');}
   deltaEl('d-income',income,prevIncome);deltaEl('d-spent',totalSpent,prevSpent);
   document.getElementById('d-balance').textContent=income>0?'收入 - 支出':'';
   const displayCum=cumulative+balance;
@@ -638,15 +665,15 @@ function saveMonth(){
   monthData[nextKey].prevIncome=income;monthData[nextKey].prevSpent=totalSpent;
   monthData[nextKey].cumulative=cumulative+balance;
   monthData[nextKey].salary=parseFloat(document.getElementById('salary').value)||0;
-  monthData[nextKey].invest=0;monthData[nextKey].side=0;
-  // 修正 (2): 下月不再繼承上月的比例，使用預設值 [30,20,40,10]
+  monthData[nextKey].deposits=0;monthData[nextKey].invest=0;monthData[nextKey].side=0;
   [1,2,3,4].forEach(i=>{monthData[nextKey]['r'+i]=[30,20,40,10][i-1];monthData[nextKey]['sp'+i]='';});
   saveData();
-  alert('✅ '+currentYear+'/'+String(currentMonth).padStart(2,'0')+' 已結算！\n本期收支：'+(balance>=0?'+':'-')+fmt(balance)+'\n累計總收支：'+(cumulative+balance>=0?'+':'-')+fmt(c[...]
+  alert('✅ '+currentYear+'/'+String(currentMonth).padStart(2,'0')+' 已結算！\n本期收支：'+(balance>=0?'+':'-')+fmt(balance)+'\n累計總收支：'+(cumulative+balance>=0?'+':'-')+fmt(cumulative+balance));
+  persistToStorage();
 }
 function changeMonth(delta){saveData();currentMonth+=delta;if(currentMonth>12){currentMonth=1;currentYear++;}if(currentMonth<1){currentMonth=12;currentYear--;}loadMonth();}
 
-loadFromStorage();loadFromStorage();renderCats();renderReviews();renderGoals();loadMonth();[1,2,3,4].forEach(updateSliderTrack);updateCurrBadges();
+loadFromStorage();renderCats();renderReviews();renderGoals();loadMonth();[1,2,3,4].forEach(updateSliderTrack);updateCurrBadges();
 </script>
 
 <div class="watermark">Designed by zyun_0</div>
