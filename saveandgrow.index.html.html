@@ -315,7 +315,7 @@ textarea.review-note::placeholder{color:#ccc}
       </select>
     </div>
     <div class="income-row">
-      <label>💳 先有存款</label>
+      <label>💳 現有存款</label>
       <input type="number" id="deposits" value="" min="0" placeholder="輸入金額" oninput="saveAndCalc()">
     </div>
     <div class="income-row">
@@ -408,7 +408,7 @@ const catDefs=[
   {id:3,emoji:'🛒',name:'一般花費',color:'#EF9F27'},
   {id:4,emoji:'🏠',name:'其他 / 備用',color:'#D85A30'},
 ];
-const reviewHints=['這個月有確實存到錢嗎？下個月想調整什麼？','娛樂花費值得嗎？有沒有衝動消費？','有哪些支出可以再省？','備用金有動用嗎？原�[...]
+const reviewHints=['這個月有確實存到錢嗎？下個月想調整什麼？','娛樂花費值得嗎？有沒有衝動消費？','有哪些支出可以再省？','備用金有動用嗎？原[...]
 const symbols={TWD:'NT$',USD:'$',JPY:'¥',EUR:'€',HKD:'HK$',CNY:'¥',KRW:'₩',SGD:'S$'};
 
 let currentYear=2026,currentMonth=5;
@@ -529,7 +529,7 @@ function saveGoalData(){
 }
 
 
-// ── Persistence ───────────────────────────────────────────────────────────[...]
+// ── Persistence ──────────────────────────────────────────────────────────[...]
 
 function autoSave(){
   saveData();
